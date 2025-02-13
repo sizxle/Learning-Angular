@@ -1,6 +1,6 @@
-import { Component, DebugNode, EventEmitter, Input, Output } from '@angular/core';
-import { TaskComponent } from "./task/task.component";
+import { Component, Input } from '@angular/core';
 import { NewTaskComponent } from './new-task/new-task.component';
+import { TaskComponent } from "./task/task.component";
 import { NewTaskData } from './task/task.model';
 import { TaskService } from './tasks.service';
 
@@ -27,20 +27,12 @@ export class TasksComponent {
     return this.taskService.getUserTasks(this.userId)
   }
 
-  onCompleteTask(id:string){
-    this.taskService.removeTask(id)
-  }
-
   onStartAddTask(){
     this.isAddingTask=true;
   }
 
-  onCancelAddTask(state:Boolean){
+  onCloseAddTask(){
     this.isAddingTask=false
   }
 
-  onTaskAdd(taskData:NewTaskData){
-    this.taskService.addTask(taskData,this.userId)
-    this.isAddingTask=false;
-  }
 }
