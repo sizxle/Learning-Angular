@@ -1,5 +1,5 @@
 export interface User{
-    id:string;
+  id:string;
   avatar:string
   name:string;
 }
